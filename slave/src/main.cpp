@@ -46,7 +46,9 @@ void receiveEvent(int _length) {
 }
 
 void requestEvent() {
-  Wire.write(&registers[registerIndex], REGISTER_LEN - registerIndex);
+  if (registerIndex < REGISTER_LEN) {
+    Wire.write(&registers[registerIndex], REGISTER_LEN - registerIndex);
+  }
 }
 
 void setup() {
