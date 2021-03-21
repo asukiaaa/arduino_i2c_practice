@@ -34,7 +34,7 @@ uint8_t readFromDevice(TwoWire &wire, uint8_t deviceAddress, uint8_t *data, uint
 }
 
 uint8_t readFromRegister(TwoWire &wire, uint8_t deviceAddress, uint8_t registerAddress, uint8_t *data, uint8_t length, bool stop=true) {
-  uint8_t result = writeToDevice(wire, deviceAddress, &registerAddress, 1);
+  uint8_t result = writeToDevice(wire, deviceAddress, &registerAddress, 1, false);
   if (result != 0) {
     return 0;
   }
